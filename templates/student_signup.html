@@ -10,14 +10,17 @@
   <title>StudyPoint Tuition Center</title>
   {% load static %}
   <style>
-    body {
-        background-image: url("{% static 'images/img4.jpg' %}");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-color: #00000065;
-        background-blend-mode: overlay;
-        }
-
+body {
+    background-image: url("{% static 'images/img4.jpg' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #00000065;
+    background-blend-mode: overlay;
+    min-height: 100%;  /* Ensure it covers the full height */
+    background-position: center center;  /* Center the background image */
+    background-attachment: fixed;  /* Ensures the background stays fixed */
+    position: relative;
+}
     .signin-container {
         max-width: 900px;
         margin: 40px auto;
@@ -25,6 +28,7 @@
         background-color: white;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 200px;
     }
 
     .brand-logo {

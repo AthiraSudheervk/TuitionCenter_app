@@ -11,6 +11,9 @@
   <title>StudyPoint Tuition Center</title>
   {% load static %}
   <style>
+     html, body {
+    overflow-x: hidden;
+  }
     .vertical-nav {
       height: 100vh;
       position: fixed;
@@ -82,7 +85,7 @@
     </button>
 
     <div class="collapse d-md-block" id="navbarMenu">
-      <a class="navbar-brand text-center text-white mb-4 ml-3" href="#" style="color:#000000 !important;">Admin Home</a>
+      <a class="navbar-brand text-center text-white mb-4 ml-3" href="{% url 'adminHome' %}" style="color:#000000 !important;">Admin Home</a>
       <ul class="nav flex-column">
         <li class="nav-item">
           <a class="nav-link" href="{% url 'view_approvalrequests' %}">Approval Requests

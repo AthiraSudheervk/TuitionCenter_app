@@ -1,4 +1,5 @@
 {% extends 'teacherNav.html' %}
+
 {% block content %}
 {% load static %}
 
@@ -20,16 +21,22 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
+    /* Ensure full width and height for the image */
     .firstimg {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 20px;
+        width: 100vw;  
+        height: 100vh; 
+        overflow: hidden; 
     }
 
     .firstimg img {
-        max-width: 100%;
-        height: auto;
+        width: 100%;  
+        height: 100%; 
+        object-fit: cover;
+        object-position: center; 
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
@@ -91,40 +98,27 @@
     }
 
     @media (min-width:576px) {    
-             .carrd{
-               margin-left:220px;
-               margin-top:60px;
-               overflow-x: hidden;
-             }
-             .align{
-              margin-left: 280px;
-             }
-          }
-
+        .carrd{
+            margin-left:220px;
+            margin-top:60px;
+            overflow-x: hidden;
+        }
+        .align{
+            margin-left: 280px;
+        }
+    }
 </style>
 
 <body>
-
-    <!-- <div class="container justify-content-center align-items-center vh-100 pt-5">
-        <div class="container">
-            {% for message in messages %}
-            <h4>
-                <div class="alert alert-success mt-5">
-                    {{ message }}
-                </div>
-            </h4>
-            {% endfor %}
-        </div>     -->
 
     <div class="contenth1">
         <h1>Welcome To Teacher Home</h1>
     </div>  
     <div class="content">
         <div class="firstimg">
-            <img src="{% static 'images/img5.jpg' %}" alt="Admin Home">
+            <img src="{% static 'images/img5.jpg' %}" alt="teacher Home" class="img-fluid">
         </div>
     </div>
-
 
 </body>
 
