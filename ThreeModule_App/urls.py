@@ -18,5 +18,6 @@ urlpatterns = [
     path('disapproveRequest/<int:ud>',views.disapproveRequest,name='disapproveRequest'),
     path('LogOut',views.LogOut,name='LogOut'),
     path('reset_pswd',views.reset_pswd,name='reset_pswd'),
-    path('reset_password',views.reset_password,name='reset_password')
+    path('reset_password',views.reset_password,name='reset_password'),
+    path('streset_password',views.streset_password,name='streset_password')
 ]

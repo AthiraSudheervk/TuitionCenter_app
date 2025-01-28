@@ -193,6 +193,11 @@ def LogOut(request):
 def reset_pswd(request):
     return render(request,'reset_password.html')
 
+
+def streset_password(request):
+    return render(request,'streset_password.html')
+
+
 def reset_password(request):
     if request.method == 'POST':
         new_pswd = request.POST['npswd']
