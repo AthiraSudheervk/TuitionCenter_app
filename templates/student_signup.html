@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>StudyPoint Tuition Center</title>
+  {% load static %}
+  <style>
+    body {
+        background-image: url("{% static 'images/img4.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #00000065;
+        background-blend-mode: overlay;
+        }
+
+    .signin-container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .brand-logo {
+        text-align: center;
+        /* margin-bottom: 20px; */
+    }
+
+    .brand-logo img {
+        width: 150px;
+    }
+
+    .btn-custom {
+        background-color: #ffe100;
+        color: rgb(0, 0, 0);
+        border: none;
+        width: 100%;
+        font-weight: bold;
+    }
+
+    .btn-custom:hover {
+        background-color: #fff200;
+        color: rgb(0, 0, 0);
+    }
+
+    .form-group label {
+        font-weight: 500;
+    }
+    .alert {
+        max-width: 900px;
+        margin: 0 auto 20px;
+        padding: 10px 20px;
+        position: relative;
+        background-color: #d4edda96;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+</style>
+
+<!-- <script>
+
+    function validate(){
+
+        email=document.getElementById('email').value;
+        phone=document.getElementById('phn').value;
+
+        document.getElementById('emailError').innerHTML='';
+        document.getElementById('phoneError').innerHTML='';
+
+        a=true;
+
+        emailpattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+        if(email==''){
+            document.getElementById('emailError').innerHTML='Email is required!';
+            a=false;
+        }
+        else if(!emailpattern.test(email)){
+            document.getElementById('emailError').innerHTML='Invalid Email!';
+            a=false;
+        }
+
+        phonePattern = /^[0-9]\d{9}$/;
+        if (phone == '') {
+            document.getElementById('phoneError').innerHTML = 'Phone number is required!';
+            a = false;
+        } else if (!phonePattern.test(phone)) {
+            document.getElementById('phoneError').innerHTML = 'Invalid Phone number!Must be 10 characters long!';
+            a = false;
+        }
+
+
+        return a;
+
+    }
+</script> -->
+
+</head>
+<body>
+
+
+    <div class="container justify-content-center align-items-center vh-100 pt-5">
+        <div class="container">
+            {% for message in messages %}
+            <h4>
+                <div class="alert alert-success mt-5">
+                    {{ message }}
+        </div>
+            </h4>
+            {% endfor %}
+    </div>    
+
+
+<div class="container justify-content-center align-items-center vh-100 pt-1">
+    <div class="signin-container">
+        <h2 style="font-weight: bold;color: rgb(0, 184, 184);text-align: center;" class="mb-3">StudyPoint</h2>
+        <h1 class="text-center mb-5" style="color: #0d173b;">Student SignUp</h1>
+        <form action="{% url 'student_signup' %}" method="post" enctype="multipart/form-data" onsubmit="return validate()">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                      <label>Enter Your First Name</label>
+                      <input type="text" class="form-control" name="fname" placeholder="First name">
+                    </div>
+                    <div class="col">
+                      <label>Enter Your Last Name</label>
+                      <input type="text" class="form-control" name="lname" placeholder="Last name">
+                    </div>
+                  </div>
+            </div>
+            <div class="form-group">
+                <label>Enter Your UserName</label>
+                <input type="text" class="form-control" name="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <label>Enter Your Email Address</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                <!-- <span id="emailError" style="color: red;"></span><br><br> -->
+            </div>
+            <div class="form-group">
+                <input type="hidden" class="form-control" name="type" value="3" >
+            </div>
+            <div class="form-group">
+                <label>Enter Your Age</label>
+                <input type="number" class="form-control" name="age" placeholder="Age" required>
+            </div>
+            <div class="form-group">
+                <label>Enter Your Contact Number</label>
+                <input type="text" class="form-control" name="phn" id="phn" placeholder="Contact Number" required>
+                <!-- <span id="phoneError" style="color: red;"></span><br><br> -->
+            </div>
+            <div class="form-group">
+                <label>Upload Image</label>
+                <input type="file" class="form-control" name="img" placeholder="Image" required>
+            </div>
+
+            <div class="form-group">
+                <label>Course</label>
+                <select name="courses" class="form-control">
+                    <option value="">Select Course</option>
+                    <option>Python</option>
+                    <option>Java</option>
+                    <option>MERN Stack</option>
+                    <option>MEAN Stack</option>
+                    <option>AI</option>
+                </select>
+                </div>
+            <button type="submit" class="btn btn-custom mt-3">Submit</button>
+        </form>
+    </div>
+</div>
+    
+</body>
+</html>

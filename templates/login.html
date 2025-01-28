@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>StudyPoint Tuition Center</title>
+  {% load static %}
+  <style>
+        body {
+            background-image: url("{% static 'images/img4.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #00000065;
+            background-blend-mode: overlay;
+        }
+
+        .course-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-logo {
+            text-align: center;
+        }
+
+        .brand-logo img {
+            width: 150px;
+        }
+
+        .btn-custom {
+            background-color: #ffe100;
+            color: rgb(0, 0, 0);
+            border: none;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .btn-custom:hover {
+            background-color: #fff200;
+            color: rgb(0, 0, 0);
+        }
+
+        .form-group label {
+            font-weight: 500;
+        }
+
+        .alert {
+            max-width: 900px;
+            margin: 0 auto 20px;
+            padding: 10px 20px;
+            position: relative;
+            background-color: #d4edda96;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .btn-link-custom {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            border:2px solid #0d173b;
+            color: #4ab7e0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-link-custom:hover {
+            background-color: #0d173b;
+            text-decoration: none;
+            color: white;
+        }
+  </style>
+</head>
+<body>
+
+        <div class="container justify-content-center align-items-center vh-100 pt-5">
+        <div class="container">
+            {% for message in messages %}
+            <h4>
+                <div class="alert alert-success mt-5">
+                    {{ message }}
+        </div>
+            </h4>
+            {% endfor %}
+    </div>
+
+
+        <div class="course-container">
+            <h1 class="text-center" style="color: #0d173b;">LogIn</h1>
+            <form action="{% url 'Fun_login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="pswd" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn-custom mt-3">Submit</button>
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>

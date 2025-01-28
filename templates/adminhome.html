@@ -1,0 +1,131 @@
+{% extends 'adminNav.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+    .content {
+        margin-left: 250px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .contenth1 h1 {
+        background-color: rgb(0, 184, 184);
+        color: #0d173b;
+        text-align: center;
+        padding: 15px;
+        font-size: 1.8rem;
+        margin: 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .firstimg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .firstimg img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* New Section Styles */
+    .new-section {
+        margin-top: 30px;
+    }
+
+    .new-section .col {
+        padding: 15px;
+    }
+
+    .new-section .col img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .new-section .content-text {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+    }
+
+    .new-section .content-text p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.8;
+        color: #333;
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            margin-left: 0;
+            padding: 10px;
+        }
+
+        .contenth1 h1 {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .contenth1 h1 {
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        .firstimg img {
+            max-width: 90%;
+        }
+    }
+
+    @media (min-width:576px) {    
+             .carrd{
+               margin-left:220px;
+               margin-top:60px;
+               overflow-x: hidden;
+             }
+             .align{
+              margin-left: 280px;
+             }
+          }
+
+</style>
+
+<body>
+
+    <!-- <div class="container justify-content-center align-items-center vh-100 pt-5">
+        <div class="container">
+            {% for message in messages %}
+            <h4>
+                <div class="alert alert-success mt-5">
+                    {{ message }}
+                </div>
+            </h4>
+            {% endfor %}
+        </div>     -->
+
+    <div class="contenth1">
+        <h1>Welcome To Admin Home</h1>
+    </div>  
+    <div class="content">
+        <div class="firstimg">
+            <img src="{% static 'images/img7.jpg' %}" alt="Admin Home">
+        </div>
+    </div>
+
+
+</body>
+
+{% endblock %}
